@@ -30,13 +30,16 @@ class Rsi(QtC.QAbstractListModel):
         self.license = rsi.license
         self.copyright = rsi.copyright
 
-    def fromFile(rsiPath : str) -> Rsi:
+    def fromFile(self, rsiPath : str) -> Rsi:
         return Rsi(RSIPy.Rsi.open(rsiPath))
 
-    def fromDmi(dmiPath : str) -> Rsi:
+    def fromDmi(self, dmiPath : str) -> Rsi:
         return Rsi(RSIPy.Rsi.from_dmi(dmiPath))
 
-    def new(x : int, y : int) -> Rsi:
+    def fromFolder(self, folder : str) -> Rsi:
+        return Rsi(RSIPy.Rsi.from_folder(folder))
+
+    def new(self, x : int, y : int) -> Rsi:
         return Rsi(RSIPy.Rsi((x, y)))
 
     # Convenience function

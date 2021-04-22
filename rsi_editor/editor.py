@@ -74,6 +74,9 @@ class EditorWindow(QtW.QMainWindow):
         importDmiAction = fileMenu.addAction("&Import DMI")
         importDmiAction.triggered.connect(self.importDmi)
 
+        importFolderAction = fileMenu.addAction("&Convert Folder To RSI")
+        importFolderAction.triggered.connect(self.importFolder)
+
         fileMenu.addSeparator()
 
         # TODO: Set up preferences
@@ -343,6 +346,20 @@ class EditorWindow(QtW.QMainWindow):
 
         self.reloadState()
 
+        self.reloadRsi()
+
+    def importFolder(self) -> None:
+	
+        if not self.closeCurrentRsi():
+            return
+
+        folder = QtW.QFileDialog.getExistingDirectory(self, 'Select Folder')
+
+        if folder == '':
+            return
+
+        self.currentRsi = Rsi.fromFolder(folder)
+        self.setWindowFilePath(folder)
         self.reloadRsi()
 
     def setRsiPath(self) -> bool:
