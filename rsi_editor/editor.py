@@ -73,6 +73,9 @@ class EditorWindow(QtW.QMainWindow):
 
         importDmiAction = fileMenu.addAction("&Import DMI")
         importDmiAction.triggered.connect(self.importDmi)
+        
+        reimportDmiAction = fileMenu.addAction("Re-import &Last DMI")
+        reimportDmiAction.triggered.connect(self.reImportDmi)
 
         fileMenu.addSeparator()
 
@@ -318,7 +321,20 @@ class EditorWindow(QtW.QMainWindow):
         if dmiFile == '':
             return
 
-        self.currentRsi = Rsi.fromDmi(dmiFile)
+        self.currentDmiFile = dmiFile
+        self.currentRsi = Rsi.fromDmi(self.currentDmiFile)
+        self.setWindowFilePath('')
+
+        self.reloadRsi()
+    
+    def reImportDmi(self) -> None:
+        if not self.closeCurrentRsi():
+            return
+        
+        if not self.currentDmiFile:
+            return
+        
+        self.currentRsi = Rsi.fromDmi(self.currentDmiFile)
         self.setWindowFilePath('')
 
         self.reloadRsi()
