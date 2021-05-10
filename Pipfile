@@ -11,7 +11,7 @@ rsi-py = ">=1.2.1"
 pillow = "*"
 byondtoolsv3 = "*"
 toml = "*"
-pyside2 = "*"
+PySide2 = "*"
 
 [requires]
-python_version = "3.9.4"
+python_version = "3.9"
