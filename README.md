@@ -3,6 +3,12 @@
 
 RSI-editor is a GUI for doing visual editing of [RSI files](https://github.com/space-wizards/RSI.py). It is intended to lower the barrier for creating new RSIs, and converting existing DMI files to the RSI format. Requires Python 3.7 or newer.
 
+## Install
+
+1. If you don't have `pipenv` install, do `pip install pipenv` in a command line window.
+2. In the RSI-Editor folder, open a command window and type `pipenv install`.
+3. Use the start.bat to start the RSI-Editor.
+
 ## Usage
 
 ### Opening an RSI
