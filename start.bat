@@ -1,3 +1,3 @@
 @echo off
-python main.py %*
+pipenv run donotrun.bat %*
 pause
