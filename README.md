@@ -5,7 +5,7 @@ RSI-editor is a GUI for doing visual editing of [RSI files](https://github.com/s
 
 ## Install
 
-1. If you don't have `pipenv` install, do `pip install pipenv` in a command line window.
+1. If you don't have `pipenv` installed, run `pip install pipenv` in a command line window.
 2. In the RSI-Editor folder, open a command window and type `pipenv install`.
 3. Use the start.bat to start the RSI-Editor.
 
